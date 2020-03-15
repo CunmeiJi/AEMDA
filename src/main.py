@@ -77,7 +77,7 @@ def train(epoch, model, optimizer, train_loader):
 if __name__ == '__main__':
 
 
-	#training representation of diseases
+    #training representation of diseases
     model_dis = dis_model(opt.embed_size).to(device)
     optimizer_d = optim.Adam(model_dis.parameters(), lr=1e-4)
     scheduler_d = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer_d,'min',factor=0.1, patience=4, verbose=True)
@@ -97,7 +97,7 @@ if __name__ == '__main__':
         train_loss = train_reprenstation(epoch, model_mi, optimizer_m, train_loader_mi)
         scheduler_m.step(train_loss) 
 
-	#training predictor
+    #training predictor
     model     = Net(model_dis.embed_dis, model_mi.embed_mi, embed_size= opt.embed_size).to(device)
     optimizer = optim.Adam(model.parameters(), lr=1e-4)
     scheduler   = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min',factor=0.1, patience=4, verbose=True)
