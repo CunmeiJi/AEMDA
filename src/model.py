@@ -88,7 +88,7 @@ class Net(nn.Module):
         x = self.ae(x)
         return x
 
-    def loss_function(self, recon_x, x, device="cpu"):
+    def loss_function(self, recon_x, x, device="cpu", lamda = 1e-4):
         x = x.view(-1, 2)
         idx_mi, idx_dis = x[:,0], x[:,1]
         x_embed_dis,x_embed_mi = self.embed_dis(idx_dis.long()), self.embed_mi(idx_mi.long())
@@ -98,11 +98,7 @@ class Net(nn.Module):
         W1 = self.ae.state_dict()['fc1.weight'].cpu() 
         W2 = self.ae.state_dict()['fc2.weight'].cpu()
         W3 = self.ae.state_dict()['fc3.weight'].cpu()
-        h = self.ae.z.cpu()
-        dh = h * (1-h)
-        w_sum = torch.sum(torch.mm(torch.mm(W3, W2), W1)**2, dim=1)
-        w_sum = w_sum.unsqueeze(1)
-        con_loss = torch.sum(torch.mm(dh**2, w_sum), 0)
+        con_loss = torch.sum(torch.mm(torch.mm(W3, W2), W1)**2)
         
-        return mse_loss + con_loss
+        return mse_loss + lamda * con_loss
 
