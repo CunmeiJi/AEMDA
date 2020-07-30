@@ -10,7 +10,7 @@ Implementation of AEMDA for inferring potential disease-miRNA associations. Our 
   * execute ```python main.py``` to train a predictor
   
 
-Note: If you wanna infer a disease-specific miRNAs, you should use the concatenated vector $[d, m_i]$ as the input of the predictor and get the reconstruction error, this process repeat $nm$ times, while $nm$ is the number of miRNAs. Then, sort all candidates and you can analyze for further biological experiments.
+Note: If you wanna infer disease-specific miRNAs, you should use the concatenated vector $[d, m_i]$ as the input of the predictor and get the reconstruction error, this process repeat $nm$ times, while $nm$ is the number of miRNAs. Then, sort all candidates and you can analyze for further biological experiments.
 
 # Cite
 Please cite our paper if you use this code in your own work:
