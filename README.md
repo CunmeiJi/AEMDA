@@ -15,14 +15,19 @@ Note: If you wanna infer disease-specific miRNAs, you should use the concatenate
 # Cite
 Please cite our paper if you use this code in your own work:
 ```
-@article{Ji2020,
+@article{Ji2021,
 author = {Ji, Cunmei and Gao, Zhen and Ma, Xu and Wu, Qingwen and Ni, Jiancheng and Zheng, Chunhou},
 doi = {10.1093/bioinformatics/btaa670},
 issn = {1367-4803},
 journal = {Bioinformatics},
-month = {jul},
-title = {{AEMDA: Inferring miRNA-disease associations based on deep autoencoder}},
+mendeley-groups = {MDA},
+month = {jan},
+number = {1},
+pages = {66--72},
+title = {{AEMDA: inferring miRNA–disease associations based on deep autoencoder}},
 url = {https://doi.org/10.1093/bioinformatics/btaa670},
-year = {2020}
+volume = {37},
+year = {2021}
 }
+
 ```
